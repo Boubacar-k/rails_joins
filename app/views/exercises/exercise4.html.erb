@@ -1,0 +1,32 @@
+<h1>Customer</h1>
+<style>
+      table, th, td {
+         border: 1px solid black;
+         border-collapse: collapse;
+      }
+      th, td {
+         padding-top: 10px;
+         padding-bottom: 20px;
+         padding-left: 30px;
+         padding-right: 40px;
+      }
+</style>
+<table>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>Name</th>
+      <th>food price</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @customer.each do |customer| %>
+      <tr>
+        <td><%= customer.id %></td>
+        <td><%= customer.name %></td>
+        <td><%= customer.custom_price %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
