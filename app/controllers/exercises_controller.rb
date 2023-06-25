@@ -16,8 +16,8 @@ class ExercisesController < ApplicationController
     # 【要件】配達先の一番多い住所を返すこと
     #   * joinsを使うこと
     #   * 取得したAddressのインスタンスにorders_countと呼びかけると注文の数を返すこと
-    @address = Address.joins(:orders).select('addresses.*, COUNT(orders.id) as order_count').where(addressable_type: "Customer")
-    .group('addresses.id')
+    @address = Address.joins(:orders).select('addresses.*, COUNT(orders.address_id) as order_count').where(addressable_type: "Customer")
+    .group('addresses.id').order('order_count DESC').first
   end
 
   def exercise4 
@@ -25,6 +25,6 @@ class ExercisesController < ApplicationController
     #   * joinsを使うこと
     #   * 取得したCustomerのインスタンスにfoods_price_sumと呼びかけると合計金額を返すこと
     @customer = Customer.joins(orders: {foods: :order_foods}).select('customers.id, customers.name, orders.id,order_foods.id, SUM(foods.price) as custom_price')
-    .group('customers.id, orders.id, order_foods.id').order('custom_price DESC')
+    .group('customers.id, orders.id, order_foods.id').order('custom_price DESC').first
   end
 end

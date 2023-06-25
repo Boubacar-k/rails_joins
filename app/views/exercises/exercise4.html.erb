@@ -21,12 +21,10 @@
   </thead>
 
   <tbody>
-    <% @customer.each do |customer| %>
       <tr>
-        <td><%= customer.id %></td>
-        <td><%= customer.name %></td>
-        <td><%= customer.custom_price %></td>
+        <td><%= @customer.id %></td>
+        <td><%= @customer.name %></td>
+        <td><%= @customer.custom_price %></td>
       </tr>
-    <% end %>
   </tbody>
 </table>

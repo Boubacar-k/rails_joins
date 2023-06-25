@@ -21,12 +21,10 @@
   </thead>
 
   <tbody>
-    <% @address.each do |address| %>
-      <tr>
-        <td><%= address.id %></td>
-        <td><%= address.prefecture %></td>
-        <td><%= address.order_count %></td>
+    <tr>
+        <td><%= @address.id %></td>
+        <td><%= @address.prefecture %></td>
+        <td><%= @address.order_count %></td>
       </tr>
-    <% end %>
   </tbody>
 </table>
